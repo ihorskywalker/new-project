@@ -1,0 +1,32 @@
+${CLIENT_IP} ${VIRTUAL_IP} ${SERVER_IP} ${VIRTUAL_NAME} ${HTTP_METHOD} ${HTTP_STATCODE} ${RESPONSE_MSECS} ${DATE_YYYY}-${DATE_MM}-${DATE_DD} ${TIME_HMS}
+{
+  "class": "Telemetry",
+  "My_System": {
+    "class": "Telemetry_System",
+    "systemPoller": {
+      "interval": 60,
+      "actions": [{
+        "includeData": {},
+                "locations": {
+                    "system": true
+                }
+            }]
+    }
+  },
+  
+    "My_ELK_Consumer": {
+      "class": "Telemetry_Consumer",
+      "type": "Generic_HTTP",
+      "host": "192.168.103.101",
+      "protocol": "http",
+      "port": 8080,
+      "path": "/",
+      "method": "POST",
+      "headers": [
+           {
+             "name": "content-type",
+             "value": "application/json"
+           }
+       ]
+   }
+}
