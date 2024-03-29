@@ -30,3 +30,5 @@ ${CLIENT_IP} ${VIRTUAL_IP} ${SERVER_IP} ${VIRTUAL_NAME} ${HTTP_METHOD} ${HTTP_ST
        ]
    }
 }
+
+https://192.168.103.4/mgmt/shared/telemetry/declare
