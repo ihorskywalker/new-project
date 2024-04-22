@@ -32,3 +32,34 @@ ${CLIENT_IP} ${VIRTUAL_IP} ${SERVER_IP} ${VIRTUAL_NAME} ${HTTP_METHOD} ${HTTP_ST
 }
 
 https://192.168.103.4/mgmt/shared/telemetry/declare
+
+
+
+
+
+
+
+{
+    "class": "Telemetry",
+    "My_Poller": {
+      "class": "Telemetry_System_Poller",
+      "interval": 0
+    },
+    "My_System": {
+      "class": "Telemetry_System",
+      "enable": "true",
+      "systemPoller": [
+        "My_Poller"
+    ]
+    },
+    "metrics": {
+      "class": "Telemetry_Pull_Consumer",
+      "type": "Prometheus",
+      "systemPoller": "My_Poller"
+    }
+}
+
+
+https://<big-ip-management-ip-address>/mgmt/shared/telemetry/declare
+
+https://<big-ip-management-ip address>/mgmt/shared/telemetry/pullconsumer/metrics
